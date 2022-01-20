@@ -4,12 +4,14 @@ tankas = Tankas()
 
 while True:
     print("Pasirinkite: ")
-    pasirinkimas = input("Judėti į \nS - šiaurę\nP - pietus\nV - vakarus\nR - rytus\n")
-    if pasirinkimas == "S":
+    pasirinkimas = input("Judėti į \ns - šiaurę\np - pietus\nv - vakarus\nr - rytus\nx - iššauti\n")
+    if pasirinkimas == "s":
         tankas.siaure()
-    if pasirinkimas == "P":
+    if pasirinkimas == "p":
         tankas.pietus()
-    if pasirinkimas == "V":
+    if pasirinkimas == "v":
         tankas.vakarai()
-    if pasirinkimas == "R":
+    if pasirinkimas == "r":
         tankas.rytai()
+    if pasirinkimas == "x":
+        tankas.sauti()
