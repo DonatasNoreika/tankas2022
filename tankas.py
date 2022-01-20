@@ -47,4 +47,22 @@ class Tankas:
             self.suviai[2] += 1
         if self.kryptis == "R":
             self.suviai[3] += 1
+        if self.tikrinti_suvi():
+            print("Priešas nukaltas!\n")
+            self.generuoti_priesa()
+        else:
+            print("Nepataikei!\n")
         self.info()
+
+    def tikrinti_suvi(self):
+        if self.x == self.priesas_x and self.y < self.priesas_y and self.kryptis == "Š":
+            return True
+        if self.x == self.priesas_x and self.y > self.priesas_y and self.kryptis == "P":
+            return True
+        if self.y == self.priesas_y and self.x < self.priesas_x and self.kryptis == "R":
+            return True
+        if self.y == self.priesas_y and self.x > self.priesas_x and self.kryptis == "V":
+            return True
+        return False
+
+
