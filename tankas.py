@@ -11,13 +11,22 @@ class Tankas:
         self.taskai = 100
         self.priesai = 0
 
+    def ar_ne_pabaiga(self):
+        if self.taskai <= 0:
+            print("\nŽaidimo pabaiga")
+            print(f"Nukauta priešų: {self.priesai}")
+            print(f"Šūviai: {self.suviai}, viso: {sum(self.suviai)}")
+            return True
+        return False
+
+
     def info(self):
         print(f"Taškai: {self.taskai}, nukauta priešų: {self.priesai}")
         print(f"Šūviai: {self.suviai}, viso: {sum(self.suviai)}")
         print(f"Koordinatės: X: {self.x}, Y: {self.y}, kryptis: {self.kryptis}")
         print(f"Priešas: X: {self.priesas_x}, Y: {self.priesas_y}")
 
-    def generuoti_priesa(self):
+    def _generuoti_priesa(self):
         self.priesas_x = randint(-10, 10)
         self.priesas_y = randint(-10, 10)
 
@@ -54,16 +63,16 @@ class Tankas:
             self.suviai[2] += 1
         if self.kryptis == "R":
             self.suviai[3] += 1
-        if self.tikrinti_suvi():
+        if self._tikrinti_suvi():
             print("Priešas nukaltas!\n")
             self.priesai += 1
-            self.taskai += 100
-            self.generuoti_priesa()
+            self.taskai += 50
+            self._generuoti_priesa()
         else:
             print("Nepataikei!\n")
         self.info()
 
-    def tikrinti_suvi(self):
+    def _tikrinti_suvi(self):
         if self.x == self.priesas_x and self.y < self.priesas_y and self.kryptis == "Š":
             return True
         if self.x == self.priesas_x and self.y > self.priesas_y and self.kryptis == "P":

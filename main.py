@@ -2,9 +2,11 @@ from tankas import Tankas
 
 tankas = Tankas()
 
-tankas.generuoti_priesa()
+tankas._generuoti_priesa()
 tankas.info()
 while True:
+    if tankas.ar_ne_pabaiga():
+        break
     print("\nPasirinkite: ")
     pasirinkimas = input("Judėti į \ns - šiaurę\np - pietus\nv - vakarus\nr - rytus\nx - iššauti\ni = informacija\nb - baigti žaidimą\n")
     if pasirinkimas == "s":
